@@ -2,7 +2,7 @@
 
 <?php
 
-  $query ="SELECT * FROM blog ORDER BY id DESC";
+$query = "SELECT * FROM blog ORDER BY id DESC";
 
 $result_set = mysqli_query($connection, $query);
 
@@ -24,45 +24,45 @@ $result_set = mysqli_query($connection, $query);
     <a class="navbar-brand m-2" href="#">COMPANY</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false">
       <span class=" navbar-toggler-icon"></span>
-    </button> 
+    </button>
     <div class=" collapse navbar-collapse justify-content-end" id="navbar">
-     
+
       <ul class="navbar-nav ">
         <li class="nav-item">
           <a class="nav-link " href="admin.php">HOME</a>
         </li>
-     
+
       </ul>
     </div>
   </nav>
   <div class=" container">
-  <div class="row mt-5 p-1">
-  <?php
-          while($row =mysqli_fetch_array($result_set)){
+    <div class="row mt-5 p-1">
+      <?php
+      while ($row = mysqli_fetch_array($result_set)) {
 
-            $_content=strip_tags(substr($row['content'],0,30));
-          ?>
+        $_content = strip_tags(substr($row['content'], 0, 30));
+      ?>
 
-  
-    <div class="col">
-      <a href="add-blog.php?b-id=<?php echo $row['id']?>" class=" text-decoration-none">
-      <div class="card">
-        <div class="card-body">
-          <img src="../<?php echo $row['blog_img'];?>" alt="" class="img-thumbnail">
-          <h1 class="h5 text-center text-black"><?php echo $row['blog_name'];?></h1>
-          <p class=" text-black-50"><?php echo $_content;?></p>
+
+        <div class="col">
+          <div class="card">
+            <a href="add-blog.php?b-id=<?php echo $row['id'] ?>" class=" text-decoration-none">
+
+              <div class="card-body">
+                <img src="../<?php echo $row['blog_img']; ?>" alt="" class="img-thumbnail">
+                <h1 class="h5 text-center text-black"><?php echo $row['blog_name']; ?></h1>
+                <p class=" text-black-50"><?php echo $_content; ?></p>
+              </div>
+
+            </a>
+          </div>
         </div>
-     
-        </a>
-      </div>
 
 
-  
+      <?php
+      }
+      ?>
     </div>
-    
-<?php
-          }
-?>
   </div>
 
   <script src="../js/bootstrap.bundle.min.js"></script>

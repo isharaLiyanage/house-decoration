@@ -46,9 +46,9 @@ if (isset($_POST['submit'])) {
                 $query = "UPDATE user SET last_login = NOW()";
                 $query .= "WHERE id ={$_SESSION['user_id']} LIMIT 1";
                 $result_set = mysqli_query($connection, $query);
-               if($result_set){
-                // redirect to users.php
-                header('Location: admin.php');
+                if ($result_set) {
+                    // redirect to users.php
+                    header('Location: admin.php');
                 }
             }
         }
@@ -87,13 +87,13 @@ if (isset($_POST['submit'])) {
                 ?>
 
                 <p>
-                    <label for="">Username:</label>
-                    <input type="text" name="email" id="" placeholder="Email Address">
+                    <label for="">Email:</label>
+                    <input type="text" name="email" id="" placeholder="admin@gmail.com">
                 </p>
 
                 <p>
                     <label for="">Password:</label>
-                    <input type="password" name="password" id="" placeholder="Password">
+                    <input type="password" name="password" id="" placeholder="admin">
                 </p>
 
                 <p>
